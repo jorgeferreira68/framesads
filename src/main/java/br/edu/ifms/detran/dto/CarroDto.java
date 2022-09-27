@@ -2,54 +2,67 @@ package br.edu.ifms.detran.dto;
 
 import java.io.Serializable;
 
+
 import br.edu.ifms.detran.model.Carro;
 
 public class CarroDto implements Serializable {
+    
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-private static final long serialVersionUID = 1l;
-private String nome;
-private Integer id;
-private String marca;
-private String placa;
-
-public CarroDto (Carro obj ) {
-	super ();
-	this.id = obj.getId();
-	this.nome = obj.getNome();
-	this.marca = obj.getMarca();
-	this.placa = obj.getPlaca();
+	private Integer id;
 	
-}
-public Integer getId() {
-	return id;
-}
+	private String nome;
+	
+	private String marca;
+	
+	private String placa;
+	
+	public CarroDto() {
+		// TODO Auto-generated constructor stub
+	}
 
-public void setId (Integer id) {
-	this.id = id;
-}
+	public CarroDto(Carro obj) {
+		super();
+		this.id = obj.getId();
+		this.nome = obj.getNome();
+		this.marca = obj.getMarca();
+		this.placa = obj.getPlaca();
+	}
 
-public String getNome() {
-	return nome;
-}
+	public Integer getId() {
+		return id;
+	}
 
-public void setNome (String nome) {
-	this.nome = nome;
-}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-public String getMarca() {
-	return marca;
-}
+	public String getNome() {
+		return nome;
+	}
 
-public void setmarca (String marca) {
-	this.marca = marca;
-}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-public String getPlaca() {
-	return placa;
-}
+	public String getMarca() {
+		return marca;
+	}
 
-public void setPlaca (String placa) {
-	this.placa = placa;
-}
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
 
+	public String getPlaca() {
+		return placa;
+	}
+
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+	
+	
 }

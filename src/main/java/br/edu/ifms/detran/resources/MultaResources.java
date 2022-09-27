@@ -15,27 +15,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.edu.ifms.detran.dto.CarroDto;
+import br.edu.ifms.detran.dto.MultaDto;
 import br.edu.ifms.detran.model.Carro;
-import br.edu.ifms.detran.service.CarroService;
+import br.edu.ifms.detran.model.Multa;
+import br.edu.ifms.detran.service.MultaService;
 
 @RestController
-@RequestMapping(value = "/carro")
-public class CarroResources {
+@RequestMapping(value = "/multa")
+public class MultaResources {	
 	
 	@Autowired
-	private CarroService carro;
+	private MultaService multa;
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Carro> find(@PathVariable Integer id) {		
-		Carro obj = carro.buscarPorId(id);
+	public ResponseEntity<Multa> find(@PathVariable Integer id) {		
+		Multa obj = multa.buscarPorId(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<Void> insert(@Valid @RequestBody CarroDto objDto) {
-		Carro obj = carro.fromDto(objDto);
-		obj = carro.insert(obj);
+	public ResponseEntity<Void> insert(@Valid @RequestBody MultaDto objDto) {
+		Multa obj = multa.fromDto(objDto);
+		obj = multa.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 			.path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
@@ -43,29 +44,29 @@ public class CarroResources {
 	
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
-	public ResponseEntity<Void> update(@Valid @RequestBody CarroDto objDto, @PathVariable Integer id) {
-		Carro obj = carro.fromDto(objDto);
+	public ResponseEntity<Void> update(@Valid @RequestBody MultaDto objDto, @PathVariable Integer id) {
+		Multa obj = multa.fromDto(objDto);
 		obj.setId(id);
-		obj = carro.update(obj);
+		obj = multa.update(obj);
 		return ResponseEntity.noContent().build();
 	}
 	
 	
 	@RequestMapping(value="/{id}", method= RequestMethod.DELETE)
-	//@RequestBody Carro obj, @PathVariable(value = "id") Long noteId
+	//@RequestBody Infracao obj, @PathVariable(value = "id") Long noteId
 	public ResponseEntity<Void> delete(@PathVariable(value = "id") Integer id){
-		carro.delete(id);
+		multa.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 	public ResponseEntity<Void> delete(@RequestBody Carro obj,@PathVariable Integer id){
-		carro.delete(id);
+		multa.delete(id);
 		return ResponseEntity.noContent().build();
-	}
+	} 
 		
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<CarroDto>> findAll() {		
-		List<Carro> list = carro.findAll();
-		List<CarroDto> listDto = list.stream().map(obj -> new CarroDto(obj)).collect(Collectors.toList());
+	public ResponseEntity<List<MultaDto>> findAll() {		
+		List<Multa> list = multa.findAll();
+		List<MultaDto> listDto = list.stream().map(obj -> new MultaDto(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDto);
 	}
 

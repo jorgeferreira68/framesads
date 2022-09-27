@@ -7,5 +7,5 @@ import br.edu.ifms.detran.model.Carro;
 
 @Repository
 public interface CarroRepository extends JpaRepository<Carro, Integer> {
-
+	
 }

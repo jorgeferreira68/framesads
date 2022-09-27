@@ -2,97 +2,55 @@ package br.edu.ifms.detran.dto;
 
 import java.io.Serializable;
 
-import br.edu.ifms.detran.model.Carro;
-import br.edu.ifms.detran.model.Infracao;
 import br.edu.ifms.detran.model.Multa;
 
 public class MultaDto implements Serializable {
-
-private static final long serialVersionUID = 1l;
-private Integer id;
-private String cidade;
-private Integer ano;
-private Object nome;
-private Object placa;
-private Object marca;
-private Infracao infracao;
-private Carro carro;
-
-
-
-
-
-public MultaDto (Multa obj ) {
-	super ();
-	this.id = obj.getId();
-	this.setNome(obj.getNome());
-	this.setMarca(obj.getMarca());
-	this.setPlaca(obj.getPlaca());
 	
-}
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-public Integer getId() {
-	return id;
-}
+	private Integer id;
+	
+	private String cidade;
+	
+	private int ano;
+	
+	public MultaDto() {
+		// TODO Auto-generated constructor stub
+	}
 
-public void setId(Integer id) {
-	this.id = id;
-}
+	public MultaDto(Multa obj) {
+		super();
+		this.id = obj.getId();
+		this.cidade = obj.getCidade();
+		this.ano = obj.getAno();
+	}
 
-public String getCidade() {
-	return cidade;
-}
+	public Integer getId() {
+		return id;
+	}
 
-public void setCidade(String cidade) {
-	this.cidade = cidade;
-}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-public int getAno() {
-	return ano;
-}
+	public String getCidade() {
+		return cidade;
+	}
 
-public void setAno(int ano) {
-	this.ano = ano;
-}
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
 
-public Carro getCarro() {
-	return carro;
-}
+	public int getAno() {
+		return ano;
+	}
 
-public void setCarro(Carro carro) {
-	this.carro = carro;
-}
-
-public Infracao getInfracao() {
-	return infracao;
-}
-
-public void setInfracao(Infracao infracao) {
-	this.infracao = infracao;
-}
-
-public Object getNome() {
-	return nome;
-}
-
-public void setNome(Object nome) {
-	this.nome = nome;
-}
-
-public Object getPlaca() {
-	return placa;
-}
-
-public void setPlaca(Object placa) {
-	this.placa = placa;
-}
-
-public Object getMarca() {
-	return marca;
-}
-
-public void setMarca(Object marca) {
-	this.marca = marca;
-}
-
+	public void setAno(int ano) {
+		this.ano = ano;
+	}
+	
 }

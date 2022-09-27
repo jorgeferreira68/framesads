@@ -3,6 +3,7 @@ package br.edu.ifms.detran.service;
 import java.util.List;
 import java.util.Optional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import br.edu.ifms.detran.model.Carro;
 import br.edu.ifms.detran.repository.CarroRepository;
 import br.edu.ifms.detran.service.exception.DataIntegrityException;
 import br.edu.ifms.detran.service.exception.ObjectNotFoundException;
+
 
 
 @Service
@@ -54,14 +56,12 @@ public class CarroService {
 	}
 	
 	public Carro fromDto(CarroDto objDto) {
-		return new Carro (objDto.getId(), objDto.getNome(), objDto.getMarca(), objDto.getPlaca());
+		return new Carro(objDto.getId(), objDto.getNome(), objDto.getMarca(), objDto.getPlaca());
 	}
-
 	
 	private void updateData(Carro newObj, Carro obj) {
 		newObj.setNome(obj.getNome());
 		newObj.setMarca(obj.getMarca());
 		newObj.setPlaca(obj.getPlaca());
 	}
-
 }

@@ -1,7 +1,6 @@
 package br.edu.ifms.detran.service.exception;
 
-public class DataIntegrityException extends RuntimeException{
-
+public class DataIntegrityException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
 	public DataIntegrityException(String msg) {
@@ -13,4 +12,5 @@ public class DataIntegrityException extends RuntimeException{
 		// TODO Auto-generated constructor stub
 		super(msg, cause);
 	}
+	
 }
